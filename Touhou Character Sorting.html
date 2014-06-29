@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <link rel="shortcut icon" href="http://tohosort.comoj.com/yinyang.ico" type="image/x-icon">
+  <link rel="icon" href="http://tohosort.comoj.com/yinyang.ico" type="image/x-icon">
+  <meta name="author" content="haru">
+  <meta name="description" content="Touhou Character Sorting">
+  <meta name="keywords" content="">
+  <meta name="generator" content="notepad"><title>Touhou Character Sorting</title>  
+  
+  <noscript></noscript><script type="text/javascript" src="Touhou%20Character%20Sorting_files/mod_k-factory.js"></script>  
+  <script type="text/javascript" src="Touhou%20Character%20Sorting_files/fnc_main_v3.js"></script>
+  <script type="text/javascript" src="Touhou%20Character%20Sorting_files/fnc_data_v2.js"></script>
+  <script type="text/javascript" src="Touhou%20Character%20Sorting_files/op.js"></script>
+  <link rel="stylesheet" type="text/css" href="Touhou%20Character%20Sorting_files/tcs_style.css">
+  <style type="text/css">
+<!--
+.style4 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-weight: normal;
+	font-size: 11px;
+}
+a:link {
+	color: #990000;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+a:visited {
+	text-decoration: none;
+	color: #6600FF;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF6600;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:active {
+	text-decoration: none;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+-->
+  </style>
+  </head><body onload="startup()">
+  <div align="center">
+   <table id="mainTable">
+    <thead>
+     <tr>
+      <td colspan="3" class="tb_header">Battle No. <span id="lblCount">-</span><br>
+       <span id="lblProgress">0</span>% sorted.<br>
+       <div align="center"><span id="GaGprog"></span></div>
+      </td>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td id="fldLeft" onclick="fnc_Sort(-1);" rowspan="2"><img src="Touhou%20Character%20Sorting_files/defaultL.jpg"></td>
+	  <td style="border: 0px; width: 7px;" rowspan="2"></td>
+      <td id="fldMiddleT" onclick="fnc_Sort(0);"><p>Touhou</p>
+        <p> Character Sort</p></td>
+	  <td style="border: 0px; width: 7px;" rowspan="2"></td>
+      <td id="fldRight" onclick="fnc_Sort(1);" rowspan="2"><img src="Touhou%20Character%20Sorting_files/defaultR.jpg"></td>
+     </tr>
+     <tr>
+      <td id="fldMiddleB" onclick="fnc_Undo();">Click to start!</td>
+     </tr>
+    </tbody>
+    <tfoot>
+     <tr>
+      <td colspan="3"><div align="center">
+        <input id="optImage" checked="checked" type="checkbox">
+        <span class="tb_header">Display images while sorting.
+          
+        </span></div></td>
+     </tr>
+    </tfoot>
+
+   </table>
+  </div>
+  <br>
+   <table id="optTable" align="center" width="450"><tbody><tr id="optSelRow0"><td><input id="optSelect0" title="Embodiment of Scarlet Devil" value="Embodiment of Scarlet Devil" checked="checked" type="checkbox"><span class="cbox" id="0" title="Embodiment of Scarlet Devil">Embodiment of Scarlet Devil</span></td><td><input id="optSelect1" title="Perfect Cherry Blossom" value="Perfect Cherry Blossom" checked="checked" type="checkbox"><span class="cbox" id="1" title="Perfect Cherry Blossom">Perfect Cherry Blossom</span></td><td><input id="optSelect2" title="Immaterial and Missing Power" value="Immaterial and Missing Power" checked="checked" type="checkbox"><span class="cbox" id="2" title="Immaterial and Missing Power">Immaterial and Missing Power</span></td></tr><tr id="optSelRow3"><td><input id="optSelect3" title="Imperishable Night" value="Imperishable Night" checked="checked" type="checkbox"><span class="cbox" id="3" title="Imperishable Night">Imperishable Night</span></td><td><input id="optSelect4" title="Phantasmagoria of Flower View" value="Phantasmagoria of Flower View" checked="checked" type="checkbox"><span class="cbox" id="4" title="Phantasmagoria of Flower View">Phantasmagoria of Flower View</span></td><td><input id="optSelect5" title="Shoot the Bullet" value="Shoot the Bullet" checked="checked" type="checkbox"><span class="cbox" id="5" title="Shoot the Bullet">Shoot the Bullet</span></td></tr><tr id="optSelRow6"><td><input id="optSelect6" title="Mountain of Faith" value="Mountain of Faith" checked="checked" type="checkbox"><span class="cbox" id="6" title="Mountain of Faith">Mountain of Faith</span></td><td><input id="optSelect7" title="Scarlet Weather Rhapsody" value="Scarlet Weather Rhapsody" checked="checked" type="checkbox"><span class="cbox" id="7" title="Scarlet Weather Rhapsody">Scarlet Weather Rhapsody</span></td><td><input id="optSelect8" title="Subterranean Animism" value="Subterranean Animism" checked="checked" type="checkbox"><span class="cbox" id="8" title="Subterranean Animism">Subterranean Animism</span></td></tr><tr id="optSelRow9"><td><input id="optSelect9" title="Touhou Hisoutensoku" value="Touhou Hisoutensoku" checked="checked" type="checkbox"><span class="cbox" id="9" title="Touhou Hisoutensoku">Touhou Hisoutensoku</span></td><td><input id="optSelect10" title="Undefined Fantastic Object" value="Undefined Fantastic Object" checked="checked" type="checkbox"><span class="cbox" id="10" title="Undefined Fantastic Object">Undefined Fantastic Object</span></td><td><input id="optSelect11" title="Double Spoiler" value="Double Spoiler" checked="checked" type="checkbox"><span class="cbox" id="11" title="Double Spoiler">Double Spoiler</span></td></tr><tr id="optSelRow12"><td><input id="optSelect12" title="Great Fairy Wars" value="Great Fairy Wars" checked="checked" type="checkbox"><span class="cbox" id="12" title="Great Fairy Wars">Great Fairy Wars</span></td><td><input id="optSelect13" title="Ten Desires" value="Ten Desires" checked="checked" type="checkbox"><span class="cbox" id="13" title="Ten Desires">Ten Desires</span></td><td><input id="optSelect14" title="Hopeless Masquerade" value="Hopeless Masquerade" checked="checked" type="checkbox"><span class="cbox" id="14" title="Hopeless Masquerade">Hopeless Masquerade</span></td></tr><tr id="optSelRow15"><td><input id="optSelect15" title="Double Dealing Character" value="Double Dealing Character" checked="checked" type="checkbox"><span class="cbox" id="15" title="Double Dealing Character">Double Dealing Character</span></td><td><input id="optSelect16" title="Books and CDs" value="Books and CDs" checked="checked" type="checkbox"><span class="cbox" id="16" title="Books and CDs">Books and CDs</span></td><td><input id="optSelect17" title="The Highly Responsive to Prayers" value="The Highly Responsive to Prayers" checked="checked" type="checkbox"><span class="cbox" id="17" title="The Highly Responsive to Prayers">The Highly Responsive to Prayers</span></td></tr><tr id="optSelRow18"><td><input id="optSelect18" title="The Story of Eastern Wonderland" value="The Story of Eastern Wonderland" checked="checked" type="checkbox"><span class="cbox" id="18" title="The Story of Eastern Wonderland">The Story of Eastern Wonderland</span></td><td><input id="optSelect19" title="Phantasmagoria of Dim.Dream" value="Phantasmagoria of Dim.Dream" checked="checked" type="checkbox"><span class="cbox" id="19" title="Phantasmagoria of Dim.Dream">Phantasmagoria of Dim.Dream</span></td><td><input id="optSelect20" title="Lotus Land Story" value="Lotus Land Story" checked="checked" type="checkbox"><span class="cbox" id="20" title="Lotus Land Story">Lotus Land Story</span></td></tr><tr id="optSelRow21"><td><input id="optSelect21" title="Mystic Square" value="Mystic Square" checked="checked" type="checkbox"><span class="cbox" id="21" title="Mystic Square">Mystic Square</span></td><td><input id="optSelect22" title="Others" value="Others" checked="checked" type="checkbox"><span class="cbox" id="22" title="Others">Others</span></td></tr></tbody><tfoot><tr class="opt_foot"><td colspan="3"><input id="optSelect_all" title="All boxes are checked/unchecked at the same time." value="All" checked="checked" type="checkbox"><span>Select All</span></td></tr></tfoot></table>
+  <br>
+  <div id="ranTable" width="640px" class="tb" style="display:none;" align="center">
+<div>
+<form>
+	  <p class="style7">FF16+ users: Shift+F2, type in "screenshot --fullpage filename.png".</p>
+      <input value="Raw Text Results" onclick="OpenWnd()" type="button">
+</form> 	
+</div>
+</div>
+  <div class="style4" id="resultField" style="text-align:center;">
+    <p class="style7">Sorter for Touhou characters. Pick your sources, and hit the Start button.<br>
+Click on the character you like better from the two, or tie them if you like them equally or don't know them.<br>
+Depending on how many sources you pick, you'll get up to 746 picks, so set aside a good few cups of tea for this.<br>
+There'll be a table at the end of the picks with your favorites sorted 
+out, plus a button to click for raw text to copy and paste.<br>
+<br>
+Sick and tired of the <a href="http://www.freewebs.com/tohosort/">original English sorter</a> not being updated so I slapped on an update.<br>
+Also was kind of irked by the inconsistency of the art, which might 
+influence close decisions. Picked out alphes' style and stuck with it.<br>
+Original credit: Made by <a href="http://mainyan.sakura.ne.jp/thsort.html">haru from E-Phantasm</a>. Scripts by <a href="http://kouga.net/">migiwa from K-Factory</a>.<br><br>
+Apparently AT&amp;T is blocking comoj. Or something. I don't know. USA USA USA USA USA USA<br><br>
+24/01/13, external image hosting, undo option (credit to Anonymous from /jp/).<br>
+02/06/13, updated to Hopeless Masquerade and trial of Double Dealing Character.<br>
+19/08/13, updated to Double Dealing Character full.
+<br><br><a href="mailto:fera@imouto.my">Bother me</a> for any gripes or help offers.</p>
+<br>
+    <p class="style7"><a href="http://kouga.net/"><img src="Touhou%20Character%20Sorting_files/kouga.jpg" longdesc="http://kouga.net/" height="40" width="200"></a> <a href="http://mainyan.sakura.ne.jp/"><img src="Touhou%20Character%20Sorting_files/bana.png" longdesc="http://mainyan.sakura.ne.jp/" height="40" width="200"></a><br>
+    </p>
+  </div>
+
+
+
+<script type="text/javascript" src="Touhou%20Character%20Sorting_files/count.js"></script>
+<!-- End Of Analytics Code -->
+</body></html>
+<!-- Hosting24 Analytics Code -->

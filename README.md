@@ -1,4 +1,5 @@
 revised_touhou_sort
 ===================
 
-modified touhour sort
+modified touhou sort
+
