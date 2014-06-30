@@ -94,8 +94,9 @@ div#resultField {
 .resTableR {
 	color:#000000;
 	border:1px solid #000000;
-	padding-left:5px;
+	// padding-left:5px;
 	font-family: Arial, Helvetica, sans-serif;
+    width: 14em;
 }
 
 a       {
